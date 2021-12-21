@@ -45,13 +45,13 @@ function Header() {
       {/* right */}
       <div className='flex items-center justify-end space-x-4'>
         <HomeIcon className='nav-btn' />
-        <MenuIcon className='h-6 w-10 md:hidden cursor-pointer' />
-        <PaperAirplaneIcon className='nav-btn' />
+        <MenuIcon className='h-6 w-10 md:hidden cursor-pointer' />        
         <div className='relative nav-btn'>
-          <PlusCircleIcon className='nav-btn' />
+        <PaperAirplaneIcon className='nav-btn' />
           <div className='absolute -top-2 -right-1 text-xs w-5 h-5
            bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white'>3</div>
         </div>
+        <PlusCircleIcon className='nav-btn' />
         <UserGroupIcon className='nav-btn' />
         <HeartIcon className='nav-btn' />
         <img src ='https://user-images.githubusercontent.com/77457834/146947844-21dbf64d-a1f1-4c94-b98b-170cda67719d.png'
