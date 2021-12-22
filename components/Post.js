@@ -8,6 +8,8 @@ import {
   MenuIcon,
   HomeIcon,
   DotsHorizontalIcon,
+  ChatIcon,
+  BookmarkAltIcon,
 } from '@heroicons/react/outline'
 
 import { HeartIcon as HeartIconFilled } from "@heroicons/react/solid"
@@ -29,6 +31,15 @@ function Post({ id, username, userImg, caption, img }) {
       <img src={img} className='object-cover w-full' alt='' />
 
       {/* buttons */}
+      <div className='flex justify-between pt-4'>
+        <div className='flex space-x-4'>
+          <HeartIcon className='btn' />
+          <ChatIcon className='btn' />
+          <PaperAirplaneIcon className='btn' />
+
+        </div>
+        <BookmarkAltIcon className='btn' />
+      </div>
 
       {/* comments */}
 
