@@ -41,6 +41,12 @@ function Post({ id, username, userImg, caption, img }) {
         <BookmarkAltIcon className='btn' />
       </div>
 
+      {/* caption */}
+      <p className='p-5 truncate'>
+        <span className='font-bold mr-1'>{username}</span>
+        {caption}
+      </p>
+
       {/* comments */}
 
       {/* input box */}
