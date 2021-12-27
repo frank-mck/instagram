@@ -11,7 +11,6 @@ import {
 import { signIn, signOut, useSession } from 'next-auth/react';
 
 function Header() {
-
   const {data: session } = useSession();
 
   return (
@@ -62,9 +61,11 @@ function Header() {
             <UserGroupIcon className='nav-btn' />
             <HeartIcon className='nav-btn' />
             <img src ={session?.user?.image}
-            className='h-10 w-10 rounded-full cursor-pointer'
-            onClick={signOut}
-            alt='profile pic' />
+              className='h-12 w-12 rounded-full cursor-pointer
+              hover:border-gray-200 border-[4px] border-transparent
+                transition-all duration-100'
+              onClick={signOut}
+              alt='profile pic' />
           </>
         ) : (
           <button onClick={signIn}>Sign In</button>

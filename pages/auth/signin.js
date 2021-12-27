@@ -7,8 +7,7 @@ function signIn({ providers }) {
     <div>
       <Header />
 
-      <div className="flex flex-col items-center justify-center h-[calc(100%-5rem)] py-2 -mt-35 px-14 text-center">
-
+      <div className="flex flex-col items-center justify-start min-h-[calc(100vh-4.5rem)] py-2 mt-[3.5rem] px-14 text-center">
         <img className="w-80" src ='https://links.papareact.com/ocw' alt='logo' />
         <p className="font-xs italic">This is not a real app, it is built for educational purposes only</p>
         <div className="mt-40">
@@ -21,7 +20,6 @@ function signIn({ providers }) {
           ))}
         </div>
       </div>
-
     </div>
   )
 }
