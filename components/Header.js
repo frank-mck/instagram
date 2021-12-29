@@ -20,7 +20,7 @@ function Header() {
     <div className='shadow-sm border-b bg-white sticky top-0 z-50'>
       <div className='flex justify-between max-w-6xl mx-5 xl:mx-auto'>
         {/* left */}
-        <div onClick={() => router.push('/')} className='relative hidden lg:inline-grid w-24 '>
+        <div onClick={() => router.push('/')} className='relative hidden lg:inline-grid w-24 cursor-pointer'>
           <Image src='https://links.papareact.com/ocw' 
             layout='fill' 
             objectFit='contain'         
