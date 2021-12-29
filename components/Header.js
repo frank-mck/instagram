@@ -10,10 +10,19 @@ import {
 } from '@heroicons/react/outline'
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import { modalState } from '../atoms/ModalAtom';
+import { useRecoilState } from 'recoil';
 
 function Header() {
   const {data: session } = useSession();
 
+  // Global state management acts like useState
+  const [open, setOpen] = useRecoilState(modalState);
+
+  // Read only global state
+  const open = useRecoilValue(modalState);
+
+  // Next router
   const router = useRouter();
 
   return (
