@@ -9,22 +9,25 @@ import {
   HomeIcon,
 } from '@heroicons/react/outline'
 import { signIn, signOut, useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 function Header() {
   const {data: session } = useSession();
+
+  const router = useRouter();
 
   return (
     <div className='shadow-sm border-b bg-white sticky top-0 z-50'>
       <div className='flex justify-between max-w-6xl mx-5 xl:mx-auto'>
         {/* left */}
-        <div className='relative hidden lg:inline-grid w-24 '>
+        <div onClick={() => router.push('/')} className='relative hidden lg:inline-grid w-24 '>
           <Image src='https://links.papareact.com/ocw' 
             layout='fill' 
             objectFit='contain'         
           />
         </div> 
 
-        <div className='relative lg:hidden w-10 flex-shrink-0 cursor-pointer'>
+        <div onClick={() => router.push('/')} className='relative lg:hidden w-10 flex-shrink-0 cursor-pointer'>
           <Image src='https://links.papareact.com/jjm' 
             layout='fill' 
             objectFit='contain'         
@@ -47,7 +50,7 @@ function Header() {
 
       {/* right */}
       <div className='flex items-center justify-end space-x-4'>
-        <HomeIcon className='nav-btn' />
+        <HomeIcon onClick={() => router.push('/')} className='nav-btn' />
         <MenuIcon className='h-6 w-10 md:hidden cursor-pointer' /> 
 
         {session ? (
