@@ -1,11 +1,24 @@
 import { useRecoilState } from "recoil"
 import { modalState } from "../atoms/ModalAtom";
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import { CameraIcon } from "@heroicons/react/outline";
 
 function Modal() {
   const [open, setOpen] = useRecoilState(modalState);
+  const filePickerRef = useRef(null);
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const addImageToPost = (e) => {
+    const reader = new FileReader();
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0])
+    }
+
+    reader.onload = (readerEvent) => {
+      setSelectedFile(readerEvent.target.result);
+    }
+  }
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -49,13 +62,26 @@ function Modal() {
                 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8
                 sm:align-middle sm:max-w-sm sm:w-full'>
                   <div>
-                    <div className='mx-auto flex items-center justify-center h-12 w-12 rounded-full
-                    bg-red-100 cursor-pointer'> 
-                      <CameraIcon
-                        className="h-6 w-6 text-red-600"
-                        aria-hidden='true'
-                      />
-                    </div>
+
+                    {selectedFile ? (
+                      <img
+                       src={selectedFile} 
+                       onClick={() => setSelectedFile(null)} 
+                       alt=''
+                       className="w-full object-contain cursor-pointer"
+                        />
+                    ) : (
+                      <div
+                      onClick={() => filePickerRef.current.click()}
+                      className='mx-auto flex items-center justify-center h-12 w-12 rounded-full
+                      bg-red-100 cursor-pointer'> 
+                        <CameraIcon
+                          className="h-6 w-6 text-red-600"
+                          aria-hidden='true'
+                        />
+                      </div>
+                    )}
+                    
                     <div>
 
                       <div className='mt-3 text-center sm:mt-5'>
@@ -68,8 +94,10 @@ function Modal() {
 
                           <div>
                             <input
-                            type='file'
-                            hidden
+                              ref={filePickerRef}
+                              type='file'
+                              hidden
+                              onChange={addImageToPost}
                             />
                           </div>
 
