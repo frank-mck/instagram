@@ -27,7 +27,15 @@ function Modal() {
             <Dialog.Overlay className='fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity' />   
           </Transition.Child>  
 
-            
+            {/* This element is to trick the browser ito centering the model contents */}
+            <span
+              className='hidden sm:inline-block sm:align-middle sm:h-screen'
+              aria-hidden='true'
+              >
+                &#8203;
+              </span>
+
+              
         </div>
         </Dialog>
       </Transition.Root>
