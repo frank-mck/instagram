@@ -1,3 +1,5 @@
+import { collection, onSnapshot, query } from "firebase/firestore";
+import { useEffect, useState } from "react";
 import Post from "./Post"
 
 const posts = [
@@ -18,6 +20,22 @@ const posts = [
 ]
 
 function Posts() {
+
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const unsubscribe = onSnapshot(query(collection(db, 'posts'), orderBy('timestamp', 'desc')), snapshot => {
+      setPosts(snapshot.docs);
+    });
+
+    // Clean up useEffect funtion everytime the snapshot is called to update the docs
+    // This means that we are never going to attach anymore than one realtime listener
+    return () => {
+      unsubscribe();
+    }
+
+  }, []);
+
   return (
     <div>
       {posts.map((post) => (
