@@ -32,7 +32,7 @@ function Post({ id, username, userImg, caption, img }) {
       <img src={img} className='object-cover w-full' alt='' />
 
       {/* buttons */}
-      <div className='flex justify-between pt-4'>
+      <div className='flex justify-between pt-4 px-4'>
         <div className='flex space-x-4'>
           <HeartIcon className='btn' />
           <ChatIcon className='btn' />
