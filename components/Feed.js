@@ -1,5 +1,6 @@
 import { useSession } from "next-auth/react";
 import MiniProfile from "./MiniProfile"
+import Modal from "./Modal";
 import Posts from "./Posts"
 import Stories from "./Stories"
 import Suggestions from "./Suggestions"
@@ -24,9 +25,11 @@ function Feed() {
             <Suggestions />
           </div>
             
-          {/* Suggestions */}
+         
         </section>      
       }
+
+      <Modal />
 
     </main>
   )

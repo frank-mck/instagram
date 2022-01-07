@@ -19,9 +19,6 @@ function Header() {
   // Global state management acts like useState
   const [open, setOpen] = useRecoilState(modalState);
 
-  // Read only global state
-  const open = useRecoilValue(modalState);
-
   // Next router
   const router = useRouter();
 
@@ -69,7 +66,7 @@ function Header() {
               <div className='absolute -top-2 -right-1 text-xs w-5 h-5
               bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white'>3</div>
             </div>
-            <PlusCircleIcon className='nav-btn' />
+            <PlusCircleIcon onClick={() => setOpen(true)} className='nav-btn' />
             <UserGroupIcon className='nav-btn' />
             <HeartIcon className='nav-btn' />
             <img src ={session?.user?.image}
