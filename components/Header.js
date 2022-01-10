@@ -73,11 +73,11 @@ function Header() {
               className='h-12 w-12 rounded-full cursor-pointer
               hover:border-gray-200 border-[4px] border-transparent
                 transition-all duration-100'
-              onClick={signOut}
+              onClick={() => signOut()}
               alt='profile pic' />
           </>
         ) : (
-          <button onClick={signIn}>Sign In</button>
+          <button onClick={() => signIn()}>Sign In</button>
         )}       
       </div>
 
