@@ -12,6 +12,4 @@ Users are authenticated with NextAuth giving the user the ability to sign in wit
 - NextAuth
 - Recoil
 
-## Credits 
-Sonny Sangha
 
