@@ -104,13 +104,13 @@ function Post({ id, username, userImg, caption, img }) {
       
 
       {/* caption */}
-      <p className='p-5 truncate'>
+      <div className='p-5 truncate'>
         {likes.length > 0 && (
-          <span className='font-bold mb-1'>{likes.length} {likes.length === 1 ? 'like' : 'likes'}</span>
+          <p className='font-bold mb-1'>{likes.length} {likes.length === 1 ? 'like' : 'likes'}</p>
         )}
         <span className='font-bold mr-1'>{username}</span>
         {caption}
-      </p>
+      </div>
 
       {/* comments */}
 
@@ -123,10 +123,10 @@ function Post({ id, username, userImg, caption, img }) {
                alt=""
                className='h-7 rounded-full'
               />
-              <p className='text-sm flex-1'>
-                <span className='font-bold'>{comment.data().username}</span>{" "}
+              <div className='text-sm flex-1'>
+                <p className='font-bold'>{comment.data().username}</p>{" "}
                 {comment.data().comment}
-              </p>
+              </div>
               <Moment fromNow className='pr-5 text-xs'>
                 {comment.data().timestamp?.toDate()}
               </Moment>
